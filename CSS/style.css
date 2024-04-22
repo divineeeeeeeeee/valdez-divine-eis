@@ -1,0 +1,12 @@
+.table {
+    position: absolute;
+    margin-left: 350px;
+}
+
+.fixed {
+    position: fixed;
+}
+
+a:hover {
+    color: rgb(169, 34, 203);
+}
