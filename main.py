@@ -23,7 +23,7 @@ def check_user():
 @app.route('/employee-list')
 def employee_list():
     employees = Employee.get_all()
-    return render_template('infosystem.html', employees=employees)
+    return render_template('employee_lists.html', employees=employees)
 
 
 if __name__ == '__main__':
