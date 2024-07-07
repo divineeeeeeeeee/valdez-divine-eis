@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='CSS/dashboard.css') }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="header">
+    <p>Dashboard</p>
+    <div class="header-icons">
+        <div class="search-icon">
+          <i class="fas fa-search"></i>
+        </div>
+        <div class="notification-icon">
+          <i class="fas fa-bell"></i>
+          <span class="notification-count">3</span>
+        </div>
+      </div>
+  </div>
+  <div class="sidebar">
+    <img src="{{ url_for('static', filename='Images/prof.jpg') }}" alt="Profile Image" class="profile-image">
+    <p>Divine Valdez</p>
+    <ul class="sidebar-nav">
+        <li class="active"><a href="{{ url_for('dashboard_routes.dashboard') }}">Dashboard</a></li>
+        <li><a href="{{ url_for('employee_routes.employee_list') }}">Employee List</a></li>
+        <li><a href="#">Personal Information</a></li>
+        <li><a href="#">Educational Information</a></li>
+        <li><a href="#">Work Experience</a></li>
+        <li><a href="#">Trainings</a></li>
+        <li><a href="{{ url_for('logout_routes.logout') }}">Log Out</a></li>
+      </ul>
+      <p class="copyright">&copy; 2024 Divine Valdez Final Exam</p>
+  </div>
+  <div class="dashboard-container">
+    <div class="card">
+      <div class="card-header">
+        <h3>Sales Trend</h3>
+        <i class="icon fas fa-chart-line"></i>
+      </div>
+      <div class="card-body">
+        <canvas id="salesChart"></canvas>
+      </div>
+      <div class="card-footer">
+        <div class="trend positive">
+          <i class="icon fas fa-arrow-up"></i>
+          12.5%
+        </div>
+        <div class="trend-label">vs last month</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <h3>New Employees</h3>
+        <i class="icon fas fa-user-plus"></i>
+      </div>
+      <div class="card-body">
+        <div class="value">1,234</div>
+        <div class="label">New Employees</div>
+      </div>
+      <div class="card-footer">
+        <div class="trend positive">
+          <i class="icon fas fa-arrow-up"></i>
+          8.3%
+        </div>
+        <div class="trend-label">vs last month</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <h3>Revenue</h3>
+        <i class="icon fas fa-dollar-sign"></i>
+      </div>
+      <div class="card-body">
+        <div class="value">$125,000</div>
+        <div class="label">Total Revenue</div>
+      </div>
+      <div class="card-footer">
+        <div class="trend positive">
+          <i class="icon fas fa-arrow-up"></i>
+          17.2%
+        </div>
+        <div class="trend-label">vs last month</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <h3>Engagement</h3>
+        <i class="icon fas fa-chart-bar"></i>
+      </div>
+      <div class="card-body">
+        <canvas id="engagementChart"></canvas>
+      </div>
+      <div class="card-footer">
+        <div class="trend positive">
+          <i class="icon fas fa-arrow-up"></i>
+          9.6%
+        </div>
+        <div class="trend-label">vs last month</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <h3>Customer Satisfaction</h3>
+        <i class="icon fas fa-smile-beam"></i>
+      </div>
+      <div class="card-body">
+        <div class="value">4.8</div>
+        <div class="label">out of 5</div>
+      </div>
+      <div class="card-footer">
+        <div class="trend positive">
+          <i class="icon fas fa-arrow-up"></i>
+          3.2%
+        </div>
+        <div class="trend-label">vs last month</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <h3>Marketing Campaigns</h3>
+        <i class="icon fas fa-bullhorn"></i>
+      </div>
+      <div class="card-body">
+        <div class="value">8</div>
+        <div class="label">Active Campaigns</div>
+      </div>
+      <div class="card-footer">
+        <div class="trend positive">
+          <i class="icon fas fa-arrow-up"></i>
+          15.4%
+        </div>
+        <div class="trend-label">vs last month</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Assuming you have Chart.js library included in your project
+    var salesCtx = document.getElementById('salesChart').getContext('2d');
+    var salesChart = new Chart(salesCtx, {
+      type: 'line',
+      data: {
+        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+        datasets: [{
+          label: 'Sales',
+          data: [120, 150, 180, 160, 200, 190],
+          borderColor: '#E2BBE9', // Change the border color to green
+          backgroundColor: '#5A639C', // Change the background color to a light green
+          fill: true
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false
+      }
+    });
+  
+    var engagementCtx = document.getElementById('engagementChart').getContext('2d');
+    var engagementChart = new Chart(engagementCtx, {
+      type: 'bar',
+      data: {
+        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+        datasets: [{
+          label: 'Engagement',
+          data: [75, 80, 85, 82, 90, 88],
+          backgroundColor: '#5A639C', // Change the background color to red
+          borderColor: '#E2BBE9', // Change the border color to a darker red
+          borderWidth: 1
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+          y: {
+            beginAtZero: true,
+            max: 100
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>

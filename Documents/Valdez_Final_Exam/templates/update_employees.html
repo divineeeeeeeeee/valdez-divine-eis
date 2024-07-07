@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Employee List</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/update_employee.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <div class="header">
+        <p>Employee List</p>
+        <div class="header-icons">
+            <div class="search-icon">
+                <i class="fas fa-search"></i>
+            </div>
+            <div class="notification-icon">
+                <i class="fas fa-bell"></i>
+                <span class="notification-count">3</span>
+            </div>
+        </div>
+    </div>
+    <div class="sidebar">
+        <img src="{{ url_for('static', filename='Images/prof.jpg') }}" alt="Profile Image" class="profile-image">
+        <p>Divine Valdez</p>
+        <ul class="sidebar-nav">
+            <li><a href="{{ url_for('dashboard_routes.dashboard') }}">Dashboard</a></li>
+            <li class="active"><a href="{{ url_for('employee_routes.employee_list') }}">Employee List</a></li>
+            <li><a href="#">Personal Information</a></li>
+            <li><a href="#">Educational Information</a></li>
+            <li><a href="#">Work Experience</a></li>
+            <li><a href="#">Trainings</a></li>
+            <li><a href="{{ url_for('logout_routes.logout') }}">Log Out</a></li>
+        </ul>
+        <p class="copyright">&copy; 2024 Divine Valdez Final Exam</p>
+    </div>
+    <div style="background-position: center; justify-content: center; align-items: center; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+        <div class="box">
+            <div class="field">
+                <h2 style="text-align: center;">Update Employee</h2>
+                {% for employee in employees %}
+                <form method="POST" action="{{ url_for('update_employee_routes.update_employee') }}">
+                    <label for="employee_id">Employee ID:</label>
+                    <input type="text" class="input" name="employee_id" id="employee_id" value="{{ employee[0] }}" readonly><br><br>
+
+                    <label for="lname">Last Name:</label>
+                    <input type="text" class="input" name="lname" id="lname" value="{{ employee[1] }}" required><br><br>
+
+                    <label for="fname">First Name:</label>
+                    <input type="text" class="input" name="fname" id="fname" value="{{ employee[2] }}" required><br><br>
+
+                    <label for="mname">Middle Name:</label>
+                    <input type="text" class="input" name="mname" id="mname" value="{{ employee[3] }}" required><br><br>
+
+                    <div style="text-align: center;">
+                        <button type="submit" class="custom-button">Update</button>
+                    </div>
+                </form>
+                {% endfor %}
+    </div>
+</body>
+</html>

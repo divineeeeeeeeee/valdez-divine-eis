@@ -1,0 +1,33 @@
+.table {
+    position: absolute;
+    margin-left: 350px;
+}
+
+.fixed {
+    position: fixed;
+}
+
+a:hover {
+    color: rgb(169, 34, 203);
+}
+
+/* Laptop styles */
+@media (min-width: 1024px) {
+    .container {
+        width: 400px;
+    }
+}
+
+/* Tablet styles */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .container {
+        width: 350px;
+    }
+}
+
+/* Mobile styles */
+@media (max-width: 767px) {
+    .container {
+        width: 280px;
+    }
+}

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee List</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='Bulma/bulma.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/employee_css.css') }}">
+</head>
+
+<body>
+    {% if message != "" %}
+    <div class="messagebox has-background-success-1 has-text-primary-15">{{ message }}</div>
+    {% endif %}
+    <div class="main">
+        <section class="header-section hero is-info has-background-success-light">
+            <div class="hero-body">
+                <p class="title">Employee Information System</p>
+                <p class="subtitle">Divine Grace B. Valdez</p>
+            </div>
+        </section>
+
+        <div class="sidebar">
+            <ul class="menu-list has-text-left">
+                <li><a class="has-text-primary-15" href="emlist.html">Employee List</a></li><br><br>
+                <li><a class="has-text-primary-15" href="pin.html">Personal Information</a></li><br><br><br>
+                <li><a class="has-text-primary-15" href="edin.html">Educational Information</a></li><br><br><br>
+                <li><a class="has-text-primary-15" href="woe.html">Work Experience</a></li><br><br>
+                <li><a class="has-text-primary-15" href="tr.html">Trainings</a></li><br><br>
+                <li><a class="has-text-primary-15" href="index.html">Log Out</a></li><br><br>
+            </ul>
+        </div>
+
+        <div class="table-container">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Employee ID</th>
+                        <th>Last Name</th>
+                        <th>First Name</th>
+                        <th>Middle Name</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for employee in employees %}
+                    <tr>
+                        <td>{{ employee[0] }}</td>
+                        <td>{{ employee[1] }}</td>
+                        <td>{{ employee[2] }}</td>
+                        <td>{{ employee[3] }}</td>
+                        <td>
+                            <form action="/update-form/{{ employee[0] }}" method="GET">
+                                <button class="button is-link" type="submit">Update</button>
+                            </form>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+
+</html>

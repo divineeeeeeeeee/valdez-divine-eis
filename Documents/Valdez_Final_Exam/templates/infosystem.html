@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='Bulma/bulma.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/style1.css') }}">
+</head>
+
+<body>
+    <section style="position: fixed; z-index: 99999;" class="hero is-info has-background-link-light">
+        <div class="hero-body">
+            <p class="title">Employee Information System</p>
+            <p class="subtitle">Divine Grace B. Valdez</p>
+        </div>
+    </section>
+    <aside style="margin-top:153px" class="menu fixed menu1">
+        <ul class="menu-list">
+            <li><a class="has-background-primary-light" href="emlist.html">Employee List</a></li>
+            <li><a class="has-background-primary-light" href="pin.html">Personal Information</a></li>
+            <li><a class="has-background-primary-light" href="edin.html">Educational Information</a></li>
+            <li><a class="has-background-primary-light" href="woe.html">Work Experience</a></li>
+            <li><a class="has-background-primary-light" href="tr.html">Trainings</a></li>
+            <li><a class="has-background-primary-light" href="index.html">Log Out</a></li>
+        </ul>
+    </aside>
+
+
+    <div class="columns is-centered">
+        <table style="margin-top:230px" class="table is-bordered has-text-centered table">
+            <tbody>
+                <tr>  <th colspan="5" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;" class="has-background-link-light has-text-centered is-size-1">Employee List</th></tr>
+                <tr>
+                    <th class="has-background-primary-light">Employee ID</th>
+                    <td class="has-background-primary-light">Last Name</td>
+                    <td class="has-background-primary-light">First Name</td>
+                    <td class="has-background-primary-light">Middle Name</td>
+                </tr>
+                {% for employee in employees %}
+                <tr>
+                    <td>{{ employee[0] }}</td>
+                    <td>{{ employee[1] }}</td>
+                    <td>{{ employee[2] }}</td>
+                    <td>{{ employee[3] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+
+
+</body>
+
+</html>

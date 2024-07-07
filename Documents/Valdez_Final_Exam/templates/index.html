@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{{ url_for('static', filename='Bulma/bulma.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/style.css') }}">
+    <title>Flask App</title>
+</head>
+
+<body>
+    <div class="columns is-mobile">
+        <form action="check-user" method="POST">
+            <div style="background-position: center; justify-content: center; align-items: center; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);"
+                class="container">
+                <h1 style="font-family:monospace;" class="has-background-link-light has-text-centered is-size-1">LOGIN
+                </h1><br><br>
+                <div class="box">
+                    <div class="field">
+                        <label class="label">Username</label>
+                        <div class="control">
+                            <input class="input has-background-primary-light is-rounded" name="username" type="text"
+                                placeholder="examplename" />
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label class="label">Password</label>
+                        <div class="control">
+                            <input class="input has-background-primary-light is-rounded" name="password" type="password"
+                                placeholder="********" />
+                        </div>
+                    </div>
+                    <div class="has-text-centered">
+                        <button type="submit" class="submit has-background-link-light is-rounded">Login</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+from flask import Flask
+from app.models.employees import Employee
+import psycopg2  # or whichever database library you're using
+
+app = Flask(__name__)
+
+# Database connection setup
+conn = psycopg2.connect(
+    host="your_host",
+    database="your_database",
+    user="your_username",
+    password="your_password"
+)
+
+@app.route('/employees/<int:employee_id>', methods=['GET'])
+def first_update_employee(employee_id):
+    try:
+        with conn.cursor() as cursor:
+            # Use the database connection to fetch the employee data
+            employee = Employee.get_employee(employee_id)
+            # Rest of the route function implementation
+    except Exception as e:
+        # Handle any exceptions that occur during the database operation
+        print(f"Error: {e}")
+        return "Error fetching employee data", 500
+    finally:
+        # Ensure the database connection is closed
+        conn.close()
+
+if __name__ == '__main__':
+    app.run()

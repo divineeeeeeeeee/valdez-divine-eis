@@ -1,0 +1,269 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #9B86BD;
+}
+.header {
+  position: fixed;
+  z-index: 55555;
+  margin-left: 16%;
+  margin-top: 0.8%;
+  border-radius: 10px;
+  background-color: #5A639C;
+  color: #fff;
+  padding: 20px;
+  height: 100px;
+  width: 81%;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header p {
+  font-size: 50px;
+  margin-bottom: 60px; /* Corrected the syntax for margin */
+}
+
+.header-icons {
+  display: flex;
+  align-items: center;
+}
+
+.search-icon,
+.notification-icon {
+  font-size: 24px;
+  margin-right: 20px;
+  cursor: pointer;
+  color: #fff;
+}
+
+.notification-icon {
+  position: relative;
+}
+
+.notification-count {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background-color: #FF0000;
+  color: #fff;
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 50%;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 857.6px) {
+  .header {
+      width: 100%; /* Spread header across the screen */
+      margin-left: 0; /* Remove left margin */
+      padding: 10px; /* Adjust padding for smaller screens */
+  }
+
+  .header p {
+      font-size: 30px; /* Adjust font size for smaller screens */
+      margin-bottom: 20px; /* Adjust margin bottom for smaller screens */
+  }
+}
+
+
+/* Sidebar Styles */
+.sidebar {
+position: fixed;
+top: 1.5%;
+left: 0.5%;
+width: 300px;
+height: calc(100% - 3%); /* Adjusted to fit remaining height */
+background-color: #5A639C;
+color: #fff;
+padding: 20px;
+box-sizing: border-box;
+border-radius: 10px;
+display: flex;
+flex-direction: column; /* Vertical layout by default */
+overflow-y: auto; /* Add scroll when content exceeds height */
+}
+
+.sidebar .profile-image {
+max-width: 50%;
+height: auto;
+display: block;
+margin: 0 auto 20px;
+border-radius: 100px;
+}
+
+.sidebar p {
+text-align: center;
+margin-bottom: 20px;
+}
+
+.sidebar-nav {
+list-style-type: none;
+padding: 0;
+margin-top: 20px; /* Adjusted from 100px for better spacing */
+display: flex;
+flex-direction: column; /* Vertical layout by default */
+}
+
+.sidebar-nav li {
+margin-bottom: 20px; /* Adjusted from 30px for better spacing */
+}
+
+.sidebar-nav a {
+color: white;
+text-decoration: none;
+font-size: 20px;
+display: block;
+padding: 8px 16px; /* Adjust padding as needed */
+transition: all 0.3s ease;
+border-radius: 10px; /* Added to make links rounded */
+}
+
+.sidebar-nav a:hover {
+background-color: #9B86BD;
+}
+
+.sidebar-nav li.active a {
+background-color: #9B86BD;
+color: white;
+}
+
+.sidebar p.copyright {
+font-size: 0.8em;
+color: white;
+margin-top: auto; /* Push to the bottom */
+text-align: left;
+}
+
+/* Media query for tablets and smaller */
+@media (max-width: 857.6px) {
+.sidebar {
+    margin-top: 120px;
+    width: 100%; /* Take full width */
+    height: auto;
+    position: absolute; /* Remove fixed positioning */
+    padding: 10px;
+    z-index: 9999;
+    justify-content: space-around; /* Distribute items evenly */
+    align-items: center; /* Center items vertically */
+}
+
+.sidebar .profile-image {
+    max-width: 30%; /* Adjust size for smaller screens */
+}
+
+.sidebar-nav {
+    margin-top: 20px; /* Reduce margin for smaller screens */
+    flex-direction: row; /* Horizontal layout */
+    flex-wrap: wrap; /* Allow items to wrap */
+    justify-content: center; /* Center items horizontally */
+}
+
+.sidebar-nav li {
+    margin-right: 10px; /* Adjust spacing between items */
+    margin-bottom: 10px; /* Adjust bottom margin */
+}
+
+.sidebar-nav a {
+    padding: 8px 12px; /* Adjust padding */
+    font-size: 16px; /* Adjust font size */
+}
+
+}
+  
+/* Dashboard Container Styles */
+.dashboard-container {
+  position: absolute; /* Changed to relative for better alignment */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid columns */
+  grid-gap: 20px;
+  margin-top: 200px; /* Adjusted margin-top for spacing */
+  margin-left: 28%; /* Adjusted margin-left for spacing */
+  width: 90%; /* Adjusted width for responsiveness */
+  max-width: 1200px; /* Added max-width to limit container width */
+  justify-content: center; /* Center align items in grid */
+}
+
+.card {
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* Card height to take full height of grid cell */
+  width: 100%; /* Card width to take full width of grid cell */
+  padding: 20px; /* Adjust padding as needed */
+  box-sizing: border-box; /* Ensure padding is included in width */
+}
+
+.card-header,
+.card-body,
+.card-footer {
+  flex: 1;
+  padding: 16px;
+}
+
+.card-header {
+  background-color: #f5f5f5;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-header h3 {
+  margin: 0;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.card-footer {
+  background-color: #f5f5f5;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.trend {
+  display: flex;
+  align-items: center;
+}
+
+.trend.positive {
+  color: #5A639C;
+}
+
+.trend.negative {
+  color: red;
+}
+
+.trend-label {
+  margin-left: 4px;
+}
+
+.value {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.label {
+  color: #666;
+}
+
+/* Media query for tablets and smaller */
+@media (max-width: 768px) {
+  .dashboard-container {
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Adjusted grid columns */
+      margin-left: 30px; /* Remove left margin */
+      margin-top: 90%; /* Adjusted margin-top */
+  }
+
+  .card {
+      height: auto; /* Adjusted height to auto for variable height content */
+  }
+}

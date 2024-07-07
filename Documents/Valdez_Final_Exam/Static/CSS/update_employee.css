@@ -1,0 +1,250 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #9B86BD;
+}
+.header {
+  position: fixed;
+  z-index: 55555;
+  margin-left: 16%;
+  margin-top: 0.8%;
+  border-radius: 10px;
+  background-color: #5A639C;
+  color: #fff;
+  padding: 20px;
+  height: 100px;
+  width: 81%;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header p {
+  font-size: 50px;
+  margin-bottom: 60px; /* Corrected the syntax for margin */
+}
+
+.header-icons {
+  display: flex;
+  align-items: center;
+}
+
+.search-icon,
+.notification-icon {
+  font-size: 24px;
+  margin-right: 20px;
+  cursor: pointer;
+  color: #fff;
+}
+
+.notification-icon {
+  position: relative;
+}
+
+.notification-count {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background-color: #FF0000;
+  color: #fff;
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 50%;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+  .header {
+      width: 100%; /* Spread header across the screen */
+      margin-left: 0; /* Remove left margin */
+      padding: 10px; /* Adjust padding for smaller screens */
+  }
+
+  .header p {
+      font-size: 30px; /* Adjust font size for smaller screens */
+      margin-bottom: 20px; /* Adjust margin bottom for smaller screens */
+  }
+}
+
+
+/* Sidebar Styles */
+.sidebar {
+position: fixed;
+top: 1.5%;
+left: 0.5%;
+width: 300px;
+height: calc(100% - 3%); /* Adjusted to fit remaining height */
+background-color: #5A639C;
+color: #fff;
+padding: 20px;
+box-sizing: border-box;
+border-radius: 10px;
+display: flex;
+flex-direction: column; /* Vertical layout by default */
+overflow-y: auto; /* Add scroll when content exceeds height */
+}
+
+.sidebar .profile-image {
+max-width: 50%;
+height: auto;
+display: block;
+margin: 0 auto 20px;
+border-radius: 100px;
+}
+
+.sidebar p {
+text-align: center;
+margin-bottom: 20px;
+}
+
+.sidebar-nav {
+list-style-type: none;
+padding: 0;
+margin-top: 20px; /* Adjusted from 100px for better spacing */
+display: flex;
+flex-direction: column; /* Vertical layout by default */
+}
+
+.sidebar-nav li {
+margin-bottom: 20px; /* Adjusted from 30px for better spacing */
+}
+
+.sidebar-nav a {
+color: white;
+text-decoration: none;
+font-size: 20px;
+display: block;
+padding: 8px 16px; /* Adjust padding as needed */
+transition: all 0.3s ease;
+border-radius: 10px; /* Added to make links rounded */
+}
+
+.sidebar-nav a:hover {
+background-color: #9B86BD;
+}
+
+.sidebar-nav li.active a {
+background-color: #9B86BD;
+color: white;
+}
+
+.sidebar p.copyright {
+font-size: 0.8em;
+color: white;
+margin-top: auto; /* Push to the bottom */
+text-align: left;
+}
+
+/* Media query for tablets and smaller */
+@media (max-width: 768px) {
+.sidebar {
+    margin-top: 120px;
+    width: 100%; /* Take full width */
+    height: auto;
+    position: absolute; /* Remove fixed positioning */
+    padding: 10px;
+    z-index: 9999;
+    justify-content: space-around; /* Distribute items evenly */
+    align-items: center; /* Center items vertically */
+}
+
+.sidebar .profile-image {
+    max-width: 30%; /* Adjust size for smaller screens */
+}
+
+.sidebar-nav {
+    margin-top: 20px; /* Reduce margin for smaller screens */
+    flex-direction: row; /* Horizontal layout */
+    flex-wrap: wrap; /* Allow items to wrap */
+    justify-content: center; /* Center items horizontally */
+}
+
+.sidebar-nav li {
+    margin-right: 10px; /* Adjust spacing between items */
+    margin-bottom: 10px; /* Adjust bottom margin */
+}
+
+.sidebar-nav a {
+    padding: 8px 12px; /* Adjust padding */
+    font-size: 16px; /* Adjust font size */
+}
+}
+
+/* Color Scheme */
+:root {
+  --color-primary: #5A639C;
+  --color-secondary: #7776B3;
+  --color-tertiary: #9B86BD;
+  --color-accent: #E2BBE9;
+}
+
+/* Add Employee Form */
+.box {
+  background-color: var(--color-tertiary);
+  border-radius: 20px;
+  padding: 50px;
+  border: 2px solid black;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  margin: 150px auto; /* Centering the box horizontally and setting top margin */
+  max-width: 80%; /* Limiting box width to 80% of the viewport width */
+}
+
+.field {
+  margin-bottom: 20px;
+}
+
+label {
+  color: white;
+  font-weight: bold;
+}
+
+.input {
+  background-color: var(--color-accent);
+  border: 4px solid var(--color-secondary);
+  border-radius: 20px;
+  padding: 10px 20px;
+  width: 100%;
+  font-size: 16px;
+  box-sizing: border-box; /* Ensuring padding does not increase width */
+}
+
+/* Define a class for your button */
+.custom-button {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  border: 2px solid transparent;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  color: #ffffff; /* Text color */
+  background-color: var(--color-primary); /* Default background color */
+}
+
+/* Hover state */
+.custom-button:hover {
+  color: white;
+  background-color: var(--color-secondary); /* Hover background color */
+}
+
+/* Active state (when button is clicked) */
+.custom-button:active {
+  background-color: var(--color-tertiary); /* Active background color */
+}
+
+h2 {
+  color: white;
+}
+
+/* Media Query for Responsive Design */
+@media (max-width: 768px) {
+  .box {
+      margin-top: 335%;
+      padding: 30px;
+  }
+}
